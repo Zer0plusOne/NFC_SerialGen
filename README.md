@@ -41,7 +41,7 @@ En caso de trabajar como un usuario sin privilegios, ejecuta este otro:
 sudo apt-get install python3
 ```
 
-### Instalación
+## Instalación
 
 Clona este repositorio en tu máquina local usando:
 
@@ -54,7 +54,7 @@ Accede al repositorio con el comando:
 cd tu-repositorio
 ```
 
-### USO
+## USO
 
 Para ejecutar el proyecto, ejecuta el siguiente comando estando en el directorio correspondiente:
 
