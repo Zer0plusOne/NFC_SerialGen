@@ -1,0 +1,186 @@
+#!/usr/bin/python3
+
+import random
+import sys
+import os
+
+SerialCode_charset = "0123456789ABCDEF"
+
+OnlyNum_charset = "0123456789"
+
+def ScreenClear():
+    if sys.platform == 'linux' or sys.platform == 'linux2':
+        os.system('clear')
+    elif sys.platform == 'win32':
+        os.system('cls')
+
+ScreenClear();
+
+# Function to generate serial numbers format: [12:34:45:67] (hex)
+
+delimiter = ':'
+
+def genSerial():
+    serial = ""
+    for i in range(0, 4):
+        serial = serial + SerialCode_charset[random.randint(0, 15)] + SerialCode_charset[random.randint(0, 15)]
+
+    return serial
+
+# Function to generate ATQA format: [0x0000]
+def genATQA():
+    ATQA = ""
+    for i in range (0, 4):
+        ATQA = ATQA + OnlyNum_charset[random.randint(0, 9)]
+
+    return ATQA
+
+# Function to generate SAK format: [0x00]
+def genSAK():
+    SAK = ""
+    for i in range (0, 2):
+        SAK = SAK + OnlyNum_charset[random.randint(0, 9)]
+
+    return SAK
+
+# Function to generate ATS format: [0x0000000000000000000000000000]
+def genATS():
+    ATS = ""
+    for i in range (0, 16):
+        ATS = ATS + SerialCode_charset[random.randint(0, 15)]
+    return ATS
+ 
+# PUPI KEY GEN BLOCK
+
+def genPUPI_1():
+    PUPI = ""
+    for i in range (0, 16):
+        PUPI = PUPI + SerialCode_charset[random.randint(0, 15)]
+    return PUPI
+
+def genPUPI_2():
+    PUPI = ""
+    for i in range (0, 16):
+        PUPI = PUPI + SerialCode_charset[random.randint(0, 15)]
+    return PUPI
+
+def genPUPI_3():
+    PUPI = ""
+    for i in range (0, 16):
+        PUPI = PUPI + SerialCode_charset[random.randint(0, 15)]
+    return PUPI
+4
+def genPUPI_4():
+    PUPI = ""
+    for i in range (0, 16):
+        PUPI = PUPI + SerialCode_charset[random.randint(0, 15)]
+    return PUPI
+
+# All codes generated
+
+generated_ATQA = genATQA();
+
+generated_serial = genSerial();
+
+generated_SAK = genSAK();
+
+generated_ATS = genATS();
+
+# PUPI CODES GENERATED
+
+generated_PUPI_1 = genPUPI_1();
+
+generated_PUPI_2 = genPUPI_2();
+
+generated_PUPI_3 = genPUPI_3();
+
+generated_PUPI_4 = genPUPI_4();
+
+# Format the codes
+
+formated_serial = generated_serial[0:2] + delimiter + generated_serial[2:4] + delimiter + generated_serial[4:6] + delimiter + generated_serial[6:8]
+formated_ATQA = "0x" + generated_ATQA
+formated_SAK = "0x" + generated_SAK
+formated_ATS = "0x" + generated_ATS
+
+# Format the PUPI codes [aa:aa:aa:aa]
+
+formated_PUPI_1 = generated_PUPI_1[0:2] + delimiter + generated_PUPI_1[2:4] + delimiter + generated_PUPI_1[4:6] + delimiter + generated_PUPI_1[6:8]
+
+formated_PUPI_2 = generated_PUPI_2[0:2] + delimiter + generated_PUPI_2[2:4] + delimiter + generated_PUPI_2[4:6] + delimiter + generated_PUPI_2[6:8]
+
+formated_PUPI_3 = generated_PUPI_3[0:2] + delimiter + generated_PUPI_3[2:4] + delimiter + generated_PUPI_3[4:6] + delimiter + generated_PUPI_3[6:8]
+
+formated_PUPI_4 = generated_PUPI_4[0:2] + delimiter + generated_PUPI_4[2:4] + delimiter + generated_PUPI_4[4:6] + delimiter + generated_PUPI_4[6:8]
+
+
+
+def ISO_14443_3A(): 
+    print ("NFC Code Component Serial Generator")
+    print("-----------------------------------")
+    print("| Serial: " + formated_serial)
+    print("| ATQA: " + formated_ATQA)
+    print("| SAK: " + formated_SAK)
+    print("| ATS: " + formated_ATS)
+    print("-----------------------------------")
+
+def ISO_14443_3B():
+    print ("NFC Code Component Serial Generator")
+    print("-----------------------------------")
+    print("| Serial: " + formated_serial)
+    print("| ATQA: " + formated_ATQA)
+    print("| SAK: " + formated_SAK)
+    print("| ATS: " + formated_ATS)
+    print("-----------------------------------")
+    print("PUPI KEY COMBO")
+    print("-----------------------------------")
+    print("| PUPI KEY 1: " + formated_PUPI_1)
+    print("| PUPI KEY 2: " + formated_PUPI_2)
+    print("| PUPI KEY 3: " + formated_PUPI_3)
+    print("| PUPI KEY 4: " + formated_PUPI_4)
+    print("-----------------------------------")
+
+def ISO_14443_4_GENERAL():
+    print ("NFC Code Component Serial Generator")
+    print("-----------------------------------")
+    print("| Serial: " + formated_serial)
+    print("| ATQA: " + formated_ATQA)
+    print("| SAK: " + formated_SAK)
+    print("| ATS: " + formated_ATS)
+    print("-----------------------------------")
+
+def ISO_14443_4_DNI():
+    print ("NFC Code Component Serial Generator")
+    print("-----------------------------------")
+    print("| Serial: " + formated_serial)
+    print("-----------------------------------")
+
+
+
+def TagTypeSelector():
+    print("Type of NFC card tag")
+    print("-----------------------")
+    print("1. ISO 14443-3A")
+    print("2. ISO 14443-3B")
+    print("3. ISO 14443-4 (GENERAL) ")
+    print("4. ISO 14443-4 (DNI)")
+    print("-----------------------")
+
+    TagType = input("Type: ")
+
+    if TagType == 1: 
+        ScreenClear();       
+        ISO_14443_3A();
+    elif TagType == 2:
+        ScreenClear();
+        ISO_14443_3B();
+    elif TagType == 3:
+        ScreenClear();
+        ISO_14443_4_DNI();
+    elif TagType == 4:
+        ScreenClear();
+        ISO_14443_4_GENERAL();
+    else:
+        print("Invalid type selected")
+        
+TagTypeSelector();
