@@ -115,7 +115,8 @@ formated_PUPI_4 = generated_PUPI_4[0:2] + delimiter + generated_PUPI_4[2:4] + de
 
 
 
-def ISO_14443_3A(): 
+def ISO_14443_3A():
+    print("-----------------------------------")
     print ("NFC Code Component Serial Generator")
     print("-----------------------------------")
     print("| Serial: " + formated_serial)
@@ -125,8 +126,9 @@ def ISO_14443_3A():
     print("-----------------------------------")
 
 def ISO_14443_3B():
+    print("------------------------------------")
     print ("NFC Code Component Serial Generator")
-    print("-----------------------------------")
+    print("------------------------------------")
     print("| Serial: " + formated_serial)
     print("| ATQA: " + formated_ATQA)
     print("| SAK: " + formated_SAK)
@@ -141,6 +143,7 @@ def ISO_14443_3B():
     print("-----------------------------------")
 
 def ISO_14443_4_GENERAL():
+    print("------------------------------------")
     print ("NFC Code Component Serial Generator")
     print("-----------------------------------")
     print("| Serial: " + formated_serial)
@@ -150,14 +153,16 @@ def ISO_14443_4_GENERAL():
     print("-----------------------------------")
 
 def ISO_14443_4_DNI():
+    print("------------------------------------")
     print ("NFC Code Component Serial Generator")
-    print("-----------------------------------")
+    print("------------------------------------")
     print("| Serial: " + formated_serial)
     print("-----------------------------------")
 
 
 
 def TagTypeSelector():
+    print("-----------------------")
     print("Type of NFC card tag")
     print("-----------------------")
     print("1. ISO 14443-3A")
@@ -168,16 +173,16 @@ def TagTypeSelector():
 
     TagType = input("Type: ")
 
-    if TagType == 1: 
+    if TagType == '1': 
         ScreenClear();       
         ISO_14443_3A();
-    elif TagType == 2:
+    elif TagType == '2':
         ScreenClear();
         ISO_14443_3B();
-    elif TagType == 3:
+    elif TagType == '3':
         ScreenClear();
         ISO_14443_4_DNI();
-    elif TagType == 4:
+    elif TagType == '4':
         ScreenClear();
         ISO_14443_4_GENERAL();
     else:
