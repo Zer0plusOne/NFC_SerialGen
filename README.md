@@ -14,13 +14,32 @@ Este proyecto proporciona un conjunto de herramientas para generar componentes d
   - ISO 14443-4 (DNI)
   - ISO 14443-4 (GENERAL)
 
+
 > :warning: **Advertencia de responsabilidad**: El autor de este software no se hace responsable del uso que los usuarios o terceros puedan hacer del mismo. Además, el autor se exonera de cualquier responsabilidad por daños que puedan ser ocasionados por su uso indebido. Este software se proporciona "tal cual", sin garantía de ningún tipo, ya sea expresa o implícita. El uso de este software es bajo su propio riesgo.
 
 ## Inicio Rápido
 
 ### Prerrequisitos
 
-Asegúrate de tener Python 3 instalado en tu sistema. Este proyecto ha sido probado con Python 3.8.
+Asegúrate de tener Python 3 instalado en tu sistema. Este proyecto ha sido probado con Python 3.12
+
+### Instalacion de requisitos
+
+**Windows:**
+
+Navega a la microsoft store y descarga el interprete de python necesario
+
+**Linux:**
+
+Ejecuta el siguiente comando:
+```bash
+apt-get install python3
+```
+
+En caso de trabajar como un usuario sin privilegios, ejecuta este otro:
+```bash
+sudo apt-get install python3
+```
 
 ### Instalación
 
